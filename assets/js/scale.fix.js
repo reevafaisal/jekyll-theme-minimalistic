@@ -34,6 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100);  // Adjust delay if needed
+    }, 500);  // Adjust delay if needed
   }
 });
