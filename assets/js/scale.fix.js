@@ -25,3 +25,15 @@
         document.addEventListener("touchend", gestureEnd, false);
     }
 })(document);
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.location.hash) {
+    // Wait for the document to be fully loaded, then scroll to the anchor
+    setTimeout(function() {
+      const element = document.querySelector(window.location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);  // Adjust delay if needed
+  }
+});
