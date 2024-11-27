@@ -27,31 +27,31 @@
 })(document);
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Preserve the original hash value on load
-  const originalHash = window.location.hash;
+// document.addEventListener("DOMContentLoaded", function() {
+//   // Preserve the original hash value on load
+//   const originalHash = window.location.hash;
 
-  // Scroll smoothly to the element when page loads with a hash
-  if (originalHash) {
-    const element = document.querySelector(originalHash);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }
+//   // Scroll smoothly to the element when page loads with a hash
+//   if (originalHash) {
+//     const element = document.querySelector(originalHash);
+//     if (element) {
+//       element.scrollIntoView({ behavior: "smooth" });
+//     }
+//   }
 
-  // Listen for changes in the URL hash
-  window.addEventListener("hashchange", function(event) {
-    // Prevent the default hash behavior
-    event.preventDefault();
+//   // Listen for changes in the URL hash
+//   window.addEventListener("hashchange", function(event) {
+//     // Prevent the default hash behavior
+//     event.preventDefault();
 
-    // Restore the original hash to stop the page from jumping back to top
-    window.location.hash = originalHash;
+//     // Restore the original hash to stop the page from jumping back to top
+//     window.location.hash = originalHash;
 
-    // Scroll to the anchor element
-    const element = document.querySelector(originalHash);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  });
+//     // Scroll to the anchor element
+//     const element = document.querySelector(originalHash);
+//     if (element) {
+//       element.scrollIntoView({ behavior: "smooth" });
+//     }
+//   });
 });
 
