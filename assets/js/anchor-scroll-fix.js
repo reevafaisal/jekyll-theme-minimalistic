@@ -11,7 +11,7 @@
     }
   }
 
-  1. Scroll to the anchor on load
+  // 1. Scroll to the anchor on load
   window.addEventListener("load", function() {
     scrollToAnchor();
   });
