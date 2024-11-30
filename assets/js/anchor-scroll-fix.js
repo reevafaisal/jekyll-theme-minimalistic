@@ -31,25 +31,27 @@
 //   }, 500); // Adjust delay if needed
 // })();
 (function () {
-  let targetElement;
-
   // Function to scroll smoothly to the element
   function scrollToAnchor() {
     if (window.location.hash) {
-      targetElement = document.querySelector(window.location.hash);
+      const targetElement = document.querySelector(window.location.hash);
       if (targetElement) {
+        // Smoothly scroll to the target element
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
     }
   }
 
-  // Scroll to the anchor on page load only if there's a hash in the URL
+  // Wait for all other scripts and potential layout shifts to complete
   window.addEventListener("load", function () {
-    if (window.location.hash) {
-      scrollToAnchor();
-    }
+    setTimeout(scrollToAnchor, 100); // Delay execution slightly
   });
 
-  // Remove unnecessary repeated scroll attempts
+  // Handle browser back/forward navigation
+  window.addEventListener("hashchange", function () {
+    scrollToAnchor();
+  });
+})();
+ Remove unnecessary repeated scroll attempts
 })();
 
