@@ -23,10 +23,10 @@
     }
   });
 
-  // // 3. Reapply the scroll position after all scripts have finished loading
-  // setTimeout(function() {
-  //   if (targetElement) {
-  //     targetElement.scrollIntoView({ behavior: "smooth" });
-  //   }
-  }, 1000); // Adjust delay if needed
+  // 3. Reapply the scroll position after all scripts have finished loading
+  setTimeout(function() {
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, 500); // Adjust delay if needed
 })();
