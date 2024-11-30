@@ -31,26 +31,39 @@
 //   }, 500); // Adjust delay if needed
 // })();
 (function () {
-  // Function to scroll smoothly to the element
+  // Function to smoothly scroll to the target element
   function scrollToAnchor() {
     if (window.location.hash) {
       const targetElement = document.querySelector(window.location.hash);
       if (targetElement) {
-        // Smoothly scroll to the target element
+        // Use smooth scrolling
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
     }
   }
 
-  // Wait for all other scripts and potential layout shifts to complete
-  window.addEventListener("load", function () {
-    setTimeout(scrollToAnchor, 100); // Delay execution slightly
-  });
+  // Function to delay execution until layout shifts settle
+  function ensureScrollToAnchor() {
+    let retries = 10; // Number of retries to wait for other scripts
+    const delay = 200; // Delay between retries in milliseconds
 
-  // Handle browser back/forward navigation
-  window.addEventListener("hashchange", function () {
-    scrollToAnchor();
-  });
+    function attemptScroll() {
+      if (retries > 0) {
+        retries--;
+        scrollToAnchor();
+        setTimeout(attemptScroll, delay);
+      }
+    }
+
+    attemptScroll();
+  }
+
+  // Scroll to anchor on page load
+  window.addEventListener("load", ensureScrollToAnchor);
+
+  // Scroll to anchor on hashchange
+  window.addEventListener("hashchange", scrollToAnchor);
 })();
+
 
 
