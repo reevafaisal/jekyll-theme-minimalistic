@@ -16,12 +16,12 @@
     scrollToAnchor();
   });
 
-  // 2. Restore the scroll position if other scripts interfere
-  window.addEventListener("beforeunload", function() {
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
-    }
-  });
+  // // 2. Restore the scroll position if other scripts interfere
+  // window.addEventListener("beforeunload", function() {
+  //   if (targetElement) {
+  //     targetElement.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // });
 
   // 3. Reapply the scroll position after all scripts have finished loading
   setTimeout(function() {
