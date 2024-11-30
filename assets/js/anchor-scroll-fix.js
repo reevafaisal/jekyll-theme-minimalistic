@@ -52,6 +52,5 @@
     scrollToAnchor();
   });
 })();
- Remove unnecessary repeated scroll attempts
-})();
+
 
